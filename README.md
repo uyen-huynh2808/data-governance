@@ -206,9 +206,9 @@ This star schema supports governance, quality validation, and lineage tracking u
 ## Project Structure: `edu-compliance-dashboard/`
 
 1. `airflow_dags/`: Workflow orchestration using Apache Airflow
-         - `ingest_students.py`: Ingests student data into MongoDB and Hive
-         - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
-         - `compliance_monitor.py`: Triggers data quality checks and compliance validation
+   - - `ingest_students.py`: Ingests student data into MongoDB and Hive
+   - - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
+   - - `compliance_monitor.py`: Triggers data quality checks and compliance validation
 
 2. `great_expectations/`: Data quality validation
          - `expectations/student_expectations.json`: Great Expectations suite for students data
