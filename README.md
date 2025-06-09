@@ -206,44 +206,44 @@ This star schema supports governance, quality validation, and lineage tracking u
 ## Project Structure: `edu-compliance-dashboard/`
 
 1. `airflow_dags/`: Workflow orchestration using Apache Airflow
-   - - `ingest_students.py`: Ingests student data into MongoDB and Hive
-   - - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
-   - - `compliance_monitor.py`: Triggers data quality checks and compliance validation
+   - `ingest_students.py`: Ingests student data into MongoDB and Hive
+   - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
+   - `compliance_monitor.py`: Triggers data quality checks and compliance validation
 
 2. `great_expectations/`: Data quality validation
-         - `expectations/student_expectations.json`: Great Expectations suite for students data
-         - `expectations/enrollment_expectations.json`: Expectations for enrollment data
-         - `expectations/grades_expectations.json`: Expectations for grades
-         - `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
-         - `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
+   - `expectations/student_expectations.json`: Great Expectations suite for students data
+   - `expectations/enrollment_expectations.json`: Expectations for enrollment data
+   - `expectations/grades_expectations.json`: Expectations for grades
+   - `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
+   - `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
 
 3. `atlas_integration/`: Apache Atlas lineage automation
-- `update_lineage_metadata.py`: Script to update metadata and lineage
+   - `update_lineage_metadata.py`: Script to update metadata and lineage
 
 4. `ranger_policies/`: Access control rules using Apache Ranger
-- `student_policy.json`: Policy for student data
-- `grades_policy.json`: Policy for academic performance data
-- `access_log_policy.json`: Policy for monitoring access logs
+   - `student_policy.json`: Policy for student data
+   - `grades_policy.json`: Policy for academic performance data
+   - `access_log_policy.json`: Policy for monitoring access logs
 
 5. `compliance_rules/`: GDPR/PDPD rule definitions
-- `rules.yaml`: Defines compliance thresholds, null limits, consent conditions
+   - `rules.yaml`: Defines compliance thresholds, null limits, consent conditions
 
 6. `dashboard/`: Streamlit-based monitoring UI
-- `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
+   - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
 
 7. `data/`: Input datasets (synthetic, Faker-generated)
-- `students.csv`
-- `enrollments.csv`
-- `grades.csv`
-- `consent_logs.csv`
-- `course_metadata.csv`
-- `access_logs.csv`
+   - `students.csv`
+   - `enrollments.csv`
+   - `grades.csv`
+   - `consent_logs.csv`
+   - `course_metadata.csv`
+   - `access_logs.csv`
 
 8. `config/`: Configuration files
-- `hive_schema.sql`: Hive table creation scripts
-- `pii_tags.json`: PII tag configuration for Atlas/Ranger
+   - `hive_schema.sql`: Hive table creation scripts
+   - `pii_tags.json`: PII tag configuration for Atlas/Ranger
 
 9. `data_generator/`: Synthetic data generator using Faker
-- `generate_data.py`: Script to generate all CSVs with consistent keys and structure
+   - `generate_data.py`: Script to generate all CSVs with consistent keys and structure
 
 -----
