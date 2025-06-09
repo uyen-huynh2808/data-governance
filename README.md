@@ -71,8 +71,7 @@ All data in this project is **synthetically generated using the Faker library** 
 | consent_given| Boolean  | Consent status              |
 | country      | String   | Country of residence        |
 
-**Governance Use:**  
-PII tracking, consent validation, data subject identification (GDPR/PDPD).
+**Governance Use:**  PII tracking, consent validation, data subject identification (GDPR/PDPD).
 
 #### 2. Course Info (`course_metadata`)
 
@@ -84,8 +83,7 @@ PII tracking, consent validation, data subject identification (GDPR/PDPD).
 | department     | String   | Associated academic department       |
 | sensitivity_tag| String   | Tag (e.g., `public`, `sensitive`)    |
 
-**Governance Use:**  
-Governance tagging and data classification. Tracked via **Apache Atlas** for metadata lineage.
+**Governance Use:**  Governance tagging and data classification. Tracked via **Apache Atlas** for metadata lineage.
 
 #### 3. Enrollment Logs (`enrollments`)
 
@@ -97,8 +95,7 @@ Governance tagging and data classification. Tracked via **Apache Atlas** for met
 | term         | String   | Academic term                      |
 | status       | String   | Enrollment status (e.g., active)   |
 
-**Governance Use:**  
-Acts as a fact table for analysis. Used in **quality checks**, such as orphan records or invalid keys.
+**Governance Use:**  Acts as a fact table for analysis. Used in **quality checks**, such as orphan records or invalid keys.
 
 #### 4. Grades (`grades`)
 
@@ -110,8 +107,7 @@ Acts as a fact table for analysis. Used in **quality checks**, such as orphan re
 | GPA        | Float    | GPA score                        |
 | term       | String   | Academic term                    |
 
-**Governance Use:**  
-Data quality validation (e.g., missing/null grades), **PDPD enforcement** for sensitive academic data.
+**Governance Use:**  Data quality validation (e.g., missing/null grades), **PDPD enforcement** for sensitive academic data.
 
 ### CSV Files (Used in HDFS and Hive)
 
@@ -124,8 +120,7 @@ Data quality validation (e.g., missing/null grades), **PDPD enforcement** for se
 | timestamp    | Datetime | When consent was recorded                 |
 | method       | String   | Collection method (email/form/etc.)       |
 
-**Governance Use:**  
-Used for **GDPR/PDPD monitoring**, consent lifecycle tracking, and audit trail generation.
+**Governance Use:**  Used for **GDPR/PDPD monitoring**, consent lifecycle tracking, and audit trail generation.
 
 #### 6. User Access Logs (`access_logs`)
 
@@ -137,8 +132,7 @@ Used for **GDPR/PDPD monitoring**, consent lifecycle tracking, and audit trail g
 | query_time  | Datetime | Timestamp of access                     |
 | access_type | String   | Operation type (read/write/delete)      |
 
-**Governance Use:**  
-Represents **Apache Ranger audit logs**. Used to validate access control policies and detect violations.
+**Governance Use:**  Represents **Apache Ranger audit logs**. Used to validate access control policies and detect violations.
 
 ## Data Model (Snowflake Schema)
 
@@ -212,16 +206,16 @@ This star schema supports governance, quality validation, and lineage tracking u
 ## Project Structure: `edu-compliance-dashboard/`
 
 1. `airflow_dags/`: Workflow orchestration using Apache Airflow
-- `ingest_students.py`: Ingests student data into MongoDB and Hive
-- `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
-- `compliance_monitor.py`: Triggers data quality checks and compliance validation
+         - `ingest_students.py`: Ingests student data into MongoDB and Hive
+         - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
+         - `compliance_monitor.py`: Triggers data quality checks and compliance validation
 
 2. `great_expectations/`: Data quality validation
-- `expectations/student_expectations.json`: Great Expectations suite for students data
-- `expectations/enrollment_expectations.json`: Expectations for enrollment data
-- `expectations/grades_expectations.json`: Expectations for grades
-- `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
-- `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
+         - `expectations/student_expectations.json`: Great Expectations suite for students data
+         - `expectations/enrollment_expectations.json`: Expectations for enrollment data
+         - `expectations/grades_expectations.json`: Expectations for grades
+         - `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
+         - `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
 
 3. `atlas_integration/`: Apache Atlas lineage automation
 - `update_lineage_metadata.py`: Script to update metadata and lineage
