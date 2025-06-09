@@ -136,7 +136,7 @@ All data in this project is **synthetically generated using the Faker library** 
 
 ## Data Model (Snowflake Schema)
 
-This star schema supports governance, quality validation, and lineage tracking using **Apache Atlas**, **Apache Ranger**, and **Great Expectations**. Data is denormalized where necessary for performance and compliance analysis.
+This snowflake schema supports governance, quality validation, and lineage tracking using **Apache Atlas**, **Apache Ranger**, and **Great Expectations**. Data is denormalized where necessary for performance and compliance analysis.
 
 ### Fact Table: `fact_enrollments`
 
