@@ -203,7 +203,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 - **Indexing:** `student_id`, `course_id` — supports fast filtering and joins for governance & analytics  
 - **PII Tagging:** Fields such as `email`, `dob`, `id_number` tagged for **access control** and **compliance audit** via **Apache Ranger**
 
-## Project Structure: `edu-compliance-dashboard/`
+## Project Structure
 
 1. `airflow_dags/`: Workflow orchestration using Apache Airflow
    - `ingest_students.py`: Ingests student data into MongoDB and Hive
