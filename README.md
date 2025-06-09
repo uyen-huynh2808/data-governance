@@ -254,7 +254,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 
 ## Disclaimer
 
-- All data in this project is **synthetically generated** using the [Faker](https://faker.readthedocs.io/) library.
+- All data in this project is **synthetically generated** using the Faker library.
 - No real individuals, courses, or institutions are represented.
 - This project is for **educational and demonstration purposes only**, especially in the context of data privacy, data governance, and compliance simulation.
 - Features such as PII tagging, GDPR/PDPD enforcement, and access logging are simulated to reflect real-world architecture, not actual enforcement.
