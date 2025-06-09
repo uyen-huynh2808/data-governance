@@ -78,7 +78,9 @@ The system uses:
 - dim_term(term_id, year, semester)
 - dim_department(department_id, name, region)
 > Partitioning: region, term_id
+> 
 > Indexing: student_id, course_id
+> 
 > Tags for PII used by Apache Ranger
 
 ## Project Files
@@ -111,3 +113,11 @@ edu-compliance-dashboard/
 ```
 ----
 
+## Dashboard Features (Streamlit)
+- Lineage graph (via Atlas API)
+- Data quality test results (pass/fail %)
+- Access control and audit logs (from Ranger)
+- Real-time alerts and compliance status
+- Export PDF/CSV reports
+
+-----
