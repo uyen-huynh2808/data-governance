@@ -12,8 +12,6 @@ The system uses:
 - **Great Expectations** for data quality
 - A **custom compliance engine** for PDPD/GDPR monitoring
 
----
-
 ## Project Goals
 
 - Track student data lineage from source to reporting layer
@@ -21,8 +19,6 @@ The system uses:
 - Restrict access to PII based on roles (e.g., Admin vs Professor)
 - Alert on PDPD/GDPR violations (e.g., missing consent, unauthorized access)
 - Provide a user-friendly dashboard for compliance status and audit
-
----
 
 ## Architecture
 
@@ -56,7 +52,7 @@ The system uses:
                                 │ (Streamlit / Looker)    │
                                 └────────────────────────┘
 ```
------
+
 ## Data Used
 ### MongoDB Collections
 - students: personal info (name, email, dob, ID)
@@ -66,8 +62,6 @@ The system uses:
 ### CSV Files
 - consent_logs.csv: Student consent history
 - course_metadata.csv: Course names, tags, departments
-
-----
 
 ## Data Model (Snowflake Schema)
 ### Fact Table: fact_enrollments
@@ -111,7 +105,6 @@ edu-compliance-dashboard/
 ├── README.md
 └── requirements.txt
 ```
-----
 
 ## Dashboard Features (Streamlit)
 - Lineage graph (via Atlas API)
