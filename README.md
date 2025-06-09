@@ -20,6 +20,8 @@ The system uses:
 - Alert on PDPD/GDPR violations (e.g., missing consent, unauthorized access)
 - Provide a user-friendly dashboard for compliance status and audit
 
+> The custom compliance rules engine enforces PDPD/GDPR policies such as consent validation and PII access monitoring based on predefined rules.
+
 ## Architecture
 
 ```plaintext
@@ -117,7 +119,7 @@ All data in this project is **synthetically generated using the Faker library** 
 |--------------|----------|-------------------------------------------|
 | student_id   | String   | Foreign key to `students`                 |
 | consent_given| Boolean  | Whether consent was granted               |
-| timestamp    | Datetime | When consent was recorded                 |
+| timestamp    | Timestamp | When consent was recorded                 |
 | method       | String   | Collection method (email/form/etc.)       |
 
 **Governance Use:**  Used for **GDPR/PDPD monitoring**, consent lifecycle tracking, and audit trail generation.
@@ -129,7 +131,7 @@ All data in this project is **synthetically generated using the Faker library** 
 | user_id     | String   | ID of accessing user/system             |
 | role        | String   | User role (e.g., analyst, admin)        |
 | table       | String   | Dataset accessed (e.g., `students`)     |
-| query_time  | Datetime | Timestamp of access                     |
+| query_time  | Timestamp | Timestamp of access                     |
 | access_type | String   | Operation type (read/write/delete)      |
 
 **Governance Use:**  Represents **Apache Ranger audit logs**. Used to validate access control policies and detect violations.
@@ -166,7 +168,9 @@ This snowflake schema supports governance, quality validation, and lineage track
 
 **Governance Use:**  
 - Tagged as **PII** via **Apache Ranger**  
-- Field-level access control and audit logs enabled  
+- Field-level access control and audit logs enabled
+
+> Fields tagged as PII or sensitive are managed via Apache Ranger for field-level access control and audit logging.  
 
 ### Dimension Table: `dim_course`
 
@@ -180,6 +184,8 @@ This snowflake schema supports governance, quality validation, and lineage track
 **Governance Use:**  
 - Tagged by **Apache Atlas** for lineage  
 - Sensitivity labels inform access policies in **Ranger**
+
+> Fields tagged as PII or sensitive are managed via Apache Ranger for field-level access control and audit logging.  
 
 ### Dimension Table: `dim_term`
 
