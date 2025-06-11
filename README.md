@@ -24,36 +24,8 @@ The system uses:
 
 ## Architecture
 
-```plaintext
-         ┌─────────────┐     ┌────────────┐
-         │  MongoDB    │     │ CSV Files  │
-         └────┬────────┘     └────┬───────┘
-              │                       │
-              ▼                       ▼
-     ┌────────────────────────────────────────┐
-     │   Ingestion Pipeline (Apache Airflow)  │
-     └────────────────┬───────────────────────┘
-                      ▼
-                 ┌────────┐
-                 │  HDFS  │
-                 └────┬───┘
-                      ▼
-              ┌──────────────┐
-              │   Hive DWH   │  ◄── Snowflake Schema (education domain)
-              └────┬─────────┘
-                   ▼
-     ┌─────────────────────────────────────────────────────────┐
-     │  Lineage: Apache Atlas   ┃  Quality: Great Expectations │
-     │  Security: Apache Ranger ┃  Compliance Rules Engine     │
-     └────┬───────────────┬────────────────────────────────────┘
-          ▼               ▼
-   [Access Logs]     [Violations] ─────────────┐
-                                              ▼
-                                ┌────────────────────────┐
-                                │ Compliance Dashboard    │
-                                │ (Streamlit / Looker)    │
-                                └────────────────────────┘
-```
+![architecture](https://github.com/user-attachments/assets/c864a4af-4787-4481-a0a4-921a9d130bc8)
+
 ## Technology Stack
 
 | Component              | Tool / Framework             |
