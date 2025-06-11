@@ -195,33 +195,10 @@ This snowflake schema supports governance, quality validation, and lineage track
 
 ## Project Structure
 
-1. `airflow_dags/`: Workflow orchestration using Apache Airflow
-   - `ingest_students.py`: Ingests student data into MongoDB and Hive
-   - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
-   - `compliance_monitor.py`: Triggers data quality checks and compliance validation
+1. `data_generator/`: Synthetic data generator using Faker
+   - `generate_data.py`: Script to generate all CSVs with consistent keys and structure
 
-2. `great_expectations/`: Data quality validation
-   - `expectations/student_expectations.json`: Great Expectations suite for students data
-   - `expectations/enrollment_expectations.json`: Expectations for enrollment data
-   - `expectations/grades_expectations.json`: Expectations for grades
-   - `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
-   - `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
-
-3. `atlas_integration/`: Apache Atlas lineage automation
-   - `update_lineage_metadata.py`: Script to update metadata and lineage
-
-4. `ranger_policies/`: Access control rules using Apache Ranger
-   - `student_policy.json`: Policy for student data
-   - `grades_policy.json`: Policy for academic performance data
-   - `access_log_policy.json`: Policy for monitoring access logs
-
-5. `compliance_rules/`: GDPR/PDPD rule definitions
-   - `rules.yaml`: Defines compliance thresholds, null limits, consent conditions
-
-6. `dashboard/`: Streamlit-based monitoring UI
-   - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
-
-7. `data/`: Input datasets (synthetic, Faker-generated)
+2. `data/`: Input datasets (synthetic, Faker-generated)
    - `students.csv`
    - `enrollments.csv`
    - `grades.csv`
@@ -229,12 +206,35 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `course_metadata.csv`
    - `access_logs.csv`
 
-8. `config/`: Configuration files
+3. `airflow_dags/`: Workflow orchestration using Apache Airflow
+   - `ingest_students.py`: Ingests student data into MongoDB and Hive
+   - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
+   - `compliance_monitor.py`: Triggers data quality checks and compliance validation
+
+4. `config/`: Configuration files
    - `hive_schema.sql`: Hive table creation scripts
    - `pii_tags.json`: PII tag configuration for Atlas/Ranger
 
-9. `data_generator/`: Synthetic data generator using Faker
-   - `generate_data.py`: Script to generate all CSVs with consistent keys and structure
+5. `compliance_rules/`: GDPR/PDPD rule definitions
+   - `rules.yaml`: Defines compliance thresholds, null limits, consent conditions
+
+6. `great_expectations/`: Data quality validation
+   - `expectations/student_expectations.json`: Great Expectations suite for students data
+   - `expectations/enrollment_expectations.json`: Expectations for enrollment data
+   - `expectations/grades_expectations.json`: Expectations for grades
+   - `checkpoints/student_checkpoint.json`: Checkpoint for students pipeline
+   - `checkpoints/grades_checkpoint.json`: Checkpoint for grades pipeline
+
+7. `ranger_policies/`: Access control rules using Apache Ranger
+   - `student_policy.json`: Policy for student data
+   - `grades_policy.json`: Policy for academic performance data
+   - `access_log_policy.json`: Policy for monitoring access logs
+
+8. `atlas_integration/`: Apache Atlas lineage automation
+   - `update_lineage_metadata.py`: Script to update metadata and lineage
+
+9. `dashboard/`: Streamlit-based monitoring UI
+   - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
 
 10. `notebooks/`: Interactive walkthroughs and documentation
     - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
