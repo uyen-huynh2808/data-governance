@@ -148,7 +148,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 | student_id    | String  | FK to `dim_student`                        |
 | course_id     | String  | FK to `dim_course`                         |
 | term_id       | String  | FK to `dim_term`                           |
-| grade         | String  | Final grade (e.g., A, B+)                  |
+| grade         | String  | Final grade (e.g., A, B)                  |
 | status        | String  | Enrollment status (e.g., active, dropped)  |
 
 **Governance Use:**  
@@ -179,7 +179,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 | course_id       | String  | Unique course identifier            |
 | name            | String  | Course name                         |
 | department      | String  | Department name                     |
-| sensitivity_tag | String  | Data classification (`public`, `sensitive`) |
+| sensitivity_tag | String  | Data classification (e.g. `public`, `sensitive`) |
 
 **Governance Use:**  
 - Tagged by **Apache Atlas** for lineage  
@@ -193,7 +193,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 |-----------|---------|----------------------------|
 | term_id   | String  | Unique academic term ID    |
 | year      | Integer | Academic year              |
-| semester  | String  | Semester (e.g., Fall, Spring) |
+| semester  | String  | Semester (e.g., First, Second) |
 
 ### Dimension Table: `dim_department`
 
@@ -251,6 +251,9 @@ This snowflake schema supports governance, quality validation, and lineage track
 
 9. `data_generator/`: Synthetic data generator using Faker
    - `generate_data.py`: Script to generate all CSVs with consistent keys and structure
+
+10. `notebooks/`: Interactive walkthroughs and documentation
+   - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
 
 ## Disclaimer
 
