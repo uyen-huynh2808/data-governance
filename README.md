@@ -253,7 +253,8 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `generate_data.py`: Script to generate all CSVs with consistent keys and structure
 
 10. `notebooks/`: Interactive walkthroughs and documentation
-   - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
+    - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
+
 
 ## Disclaimer
 
