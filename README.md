@@ -54,6 +54,18 @@ The system uses:
                                 │ (Streamlit / Looker)    │
                                 └────────────────────────┘
 ```
+## Technology Stack
+
+| Component              | Tool / Framework             |
+|------------------------|------------------------------|
+| Data Source	| MongoDB, CSV (Faker) |
+| Orchestration	| Apache Airflow | 
+| Storage	| HDFS, Hive | 
+| Metadata/Lineage	| Apache Atlas | 
+| Security	| Apache Ranger | 
+| Data Quality	| Great Expectations | 
+| Rule Engine	| Python (YAML rules) | 
+| Visualization	| Streamlit / Looker | 
 
 ## Data Used
 
