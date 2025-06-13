@@ -237,7 +237,7 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `governance_orchestration.py`: Master DAG that calls all task functions
 
 10. `dashboard/`: Streamlit-based monitoring UI
-   - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
+    - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
 
 11. `notebooks/`: Interactive walkthroughs and documentation
     - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
