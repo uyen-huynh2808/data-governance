@@ -206,8 +206,8 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `course_metadata.csv`
    - `access_logs.csv`
 
-3. `airflow_dags/`: Workflow orchestration using Apache Airflow
-   - `ingest_students.py`: Ingests student data into MongoDB and Hive
+3. `pipeline_tasks/`: Modular Python scripts for pipeline task logic
+   - `ingest_data.py`: Ingests data into MongoDB and Hive
    - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
    - `compliance_monitor.py`: Triggers data quality checks and compliance validation
 
@@ -233,10 +233,13 @@ This snowflake schema supports governance, quality validation, and lineage track
 8. `atlas_integration/`: Apache Atlas lineage automation
    - `update_lineage_metadata.py`: Script to update metadata and lineage
 
-9. `dashboard/`: Streamlit-based monitoring UI
+9. `airflow_dags/`: Workflow orchestration using Apache Airflow
+   - `governance_orchestration.py`: Master DAG that calls all task functions
+
+10. `dashboard/`: Streamlit-based monitoring UI
    - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
 
-10. `notebooks/`: Interactive walkthroughs and documentation
+11. `notebooks/`: Interactive walkthroughs and documentation
     - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
 
 
