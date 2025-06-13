@@ -26,6 +26,10 @@ The system uses:
 
 ![architecture](https://github.com/user-attachments/assets/c864a4af-4787-4481-a0a4-921a9d130bc8)
 
+> Note:
+> This project handles data generation and ingestion in batch mode, so MongoDB acts only as a temporary storage layer and may appear redundant.
+> However, in a real-world scenario involving complex streaming sources or microservices, MongoDB (or other NoSQL stores) is useful for buffering semi-structured data before transformation and loading into Hive or a data warehouse.
+
 ## Technology Stack
 
 | Component              | Tool / Framework             |
