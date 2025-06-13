@@ -203,7 +203,7 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `enrollments.csv`
    - `grades.csv`
    - `consent_logs.csv`
-   - `course_metadata.csv`
+   - `course.csv`
    - `access_logs.csv`
 
 3. `pipeline_tasks/`: Modular Python scripts for pipeline task logic
