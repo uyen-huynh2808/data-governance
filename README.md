@@ -211,7 +211,7 @@ This snowflake schema supports governance, quality validation, and lineage track
    - `access_logs.csv`
 
 3. `pipeline_tasks/`: Modular Python scripts for pipeline task logic
-   - `ingest_data.py`: Ingests data into MongoDB and Hive
+   - `ingest_data.py`: Ingests data into MongoDB and HDFS
    - `load_to_hive.py`: Loads structured data into Hive with Snowflake schema
    - `compliance_monitor.py`: Triggers data quality checks and compliance validation
 
