@@ -127,7 +127,7 @@ Below is the schema and governance use for each dataset:
 |-------------|----------|-----------------------------------------|
 | user_id     | String   | ID of accessing user/system             |
 | role        | String   | User role (e.g., analyst, admin)        |
-| table       | String   | Dataset accessed (e.g., `students`)     |
+| table_name       | String   | Dataset accessed (e.g., `students`)     |
 | query_time  | Timestamp | Timestamp of access                     |
 | access_type | String   | Operation type (read/write/delete)      |
 
