@@ -45,9 +45,20 @@ The system uses:
 
 ## Data Used
 
-All data in this project is **synthetically generated using the Faker library** to simulate a realistic educational dataset. The dataset includes student profiles, enrollment records, academic performance, privacy consent logs, and course metadata. This structure enables compliance checks, data lineage tracking, and quality validation.
+### MongoDB & CSV Files
 
-### MongoDB Collections
+All six datasets are first generated as CSV files using the Faker library, and then ingested into **both MongoDB** (for temporary storage and inspection) and **Hive** (as structured warehouse tables). MongoDB supports flexibility in handling semi-structured data during staging, while Hive supports downstream governance tools like Apache Atlas and Ranger.
+
+The six datasets include:
+
+1. `students`
+2. `courses`
+3. `enrollments`
+4. `grades`
+5. `consent_logs`
+6. `access_logs`
+
+Below is the schema and governance use for each dataset:
 
 #### 1. Student Info (`students`)
 
@@ -98,8 +109,6 @@ All data in this project is **synthetically generated using the Faker library** 
 | term       | String   | Academic term                    |
 
 **Governance Use:**  Data quality validation (e.g., missing/null grades), **PDPD enforcement** for sensitive academic data.
-
-### CSV Files (Used in HDFS and Hive)
 
 #### 5. Consent Logs (`consent_logs`)
 
