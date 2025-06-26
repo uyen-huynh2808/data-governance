@@ -63,7 +63,7 @@ All data in this project is **synthetically generated using the Faker library** 
 
 **Governance Use:**  PII tracking, consent validation, data subject identification (GDPR/PDPD).
 
-#### 2. Course Info (`course_metadata`)
+#### 2. Course Info (`course`)
 
 | Field           | Type     | Description                          |
 |----------------|----------|--------------------------------------|
