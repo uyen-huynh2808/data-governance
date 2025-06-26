@@ -116,7 +116,7 @@ Below is the schema and governance use for each dataset:
 |--------------|----------|-------------------------------------------|
 | student_id   | String   | Foreign key to `students`                 |
 | consent_given| Boolean  | Whether consent was granted               |
-| timestamp    | Timestamp | When consent was recorded                 |
+| consent_time    | Timestamp | When consent was recorded                 |
 | method       | String   | Collection method (email/form/etc.)       |
 
 **Governance Use:**  Used for **GDPR/PDPD monitoring**, consent lifecycle tracking, and audit trail generation.
