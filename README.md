@@ -193,9 +193,9 @@ This snowflake schema supports governance, quality validation, and lineage track
 
 ### Optimization
 
-- **Partitioning:** `region`, `term_id` — improves Hive query performance and archiving strategy  
-- **Indexing:** `student_id`, `course_id` — supports fast filtering and joins for governance & analytics  
-- **PII Tagging:** Fields such as `email`, `dob`, `id_number` tagged for **access control** and **compliance audit** via **Apache Ranger**
+- **Partitioning:** Tables are partitioned by `region` (in `dim_department`) and `term_id` (in `fact_enrollments`) to improve Hive query performance and archiving strategy.
+- **PII Tagging:** Fields such as `email`, `dob`, and `id_number` are tagged as PII for **access control** and **compliance auditing** via **Apache Ranger** and **Apache Atlas**.
+- **Indexing/Bucketing:** Not applied in this setup. For larger datasets, Hive bucketing or indexing can be introduced. The current system relies on **partition pruning** for performance.
 
 ## Project Structure
 
