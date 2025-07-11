@@ -24,7 +24,7 @@ The system uses:
 
 ## Architecture
 
-![architecture](https://github.com/user-attachments/assets/c864a4af-4787-4481-a0a4-921a9d130bc8)
+![architecture](https://github.com/user-attachments/assets/6586b4ef-bbb1-4a54-97d9-51eaf9bf1d10)
 
 > Note:
 > This project handles data generation and ingestion in batch mode, so MongoDB acts only as a temporary storage layer and may appear redundant.
@@ -41,7 +41,7 @@ The system uses:
 | Security	| Apache Ranger | 
 | Data Quality	| Great Expectations | 
 | Rule Engine	| Python (YAML rules) | 
-| Visualization	| Streamlit / Looker | 
+| Visualization	| Streamlit  | 
 
 ## Data Used
 
