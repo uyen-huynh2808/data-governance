@@ -253,7 +253,7 @@ This snowflake schema supports governance, quality validation, and lineage track
     - `streamlit_ui.py`: Visual dashboard for governance metrics and alerts
 
 11. `notebooks/`: Interactive walkthroughs and documentation
-    - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline.
+    - `pipeline_walkthrough.ipynb`: Jupyter notebook that demonstrates how to run and monitor the full data governance pipeline, while also outlining its current limitations and potential areas for future development.
 
 
 ## Disclaimer
