@@ -1,0 +1,21 @@
+{
+  "dim_student": {
+    "pii_fields": ["name", "email", "dob", "id_number"]
+  },
+  "fact_enrollments": {
+    "sensitive_fields": ["grade", "status"]
+  },
+  "dim_course": {
+    "sensitive_fields": ["sensitivity_tag"]
+  },
+  "dim_department": {
+    "monitor_fields": ["name", "region"]
+  },
+  "consent_logs": {
+    "consent_field": "consent_given",
+    "monitor_fields": ["method", "consent_time"]
+  },
+  "access_logs": {
+    "monitor_fields": ["user_id", "role", "table_name", "access_type", "query_time"]
+  }
+}

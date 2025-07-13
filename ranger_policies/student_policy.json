@@ -1,0 +1,32 @@
+{
+  "policyName": "student_pii_access",
+  "service": "hive",
+  "resources": {
+    "database": { "values": ["university_data"], "isExcludes": false, "isRecursive": false },
+    "table": { "values": ["students"], "isExcludes": false, "isRecursive": false },
+    "column": { "values": ["student_id", "name", "email", "dob", "id_number"], "isExcludes": false, "isRecursive": false }
+  },
+  "policyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": true }],
+      "users": ["admin"],
+      "conditions": [],
+      "delegateAdmin": true
+    },
+    {
+      "accesses": [{ "type": "select", "isAllowed": true }],
+      "users": ["professor"],
+      "conditions": [],
+      "delegateAdmin": false
+    }
+  ],
+  "denyPolicyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": false }],
+      "users": ["analyst"],
+      "conditions": [],
+      "delegateAdmin": false
+    }
+  ],
+  "auditEnabled": true
+}

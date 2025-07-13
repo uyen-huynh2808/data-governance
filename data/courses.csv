@@ -1,0 +1,5 @@
+course_id,name,credits,sensitivity_tag,department
+C001,Data Science,3,public,Computer Science
+C002,AI Ethics,4,sensitive,Philosophy
+C003,Cybersecurity Basics,3,confidential,Information Security
+C004,Educational Psychology,2,public,Education

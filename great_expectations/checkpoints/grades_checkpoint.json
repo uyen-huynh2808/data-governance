@@ -1,0 +1,22 @@
+{
+  "name": "grades_checkpoint",
+  "config_version": 1.0,
+  "class_name": "Checkpoint",
+  "run_name_template": "%Y%m%d-%H%M%S-grades",
+  "validations": [
+    {
+      "batch_request": {
+        "datasource_name": "default_filesystem",
+        "data_connector_name": "default_runtime_data_connector_name",
+        "data_asset_name": "grades.csv",
+        "runtime_parameters": {
+          "path": "data/grades.csv"
+        },
+        "batch_identifiers": {
+          "default_identifier_name": "grades_batch"
+        }
+      },
+      "expectation_suite_name": "grades_expectations"
+    }
+  ]
+}

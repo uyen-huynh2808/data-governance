@@ -1,0 +1,23 @@
+{
+  "policyName": "access_logs_monitoring",
+  "service": "hive",
+  "resources": {
+    "database": { "values": ["university_data"], "isExcludes": false, "isRecursive": false },
+    "table": { "values": ["access_logs"], "isExcludes": false, "isRecursive": false }
+  },
+  "policyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": true }],
+      "users": ["admin", "compliance_officer"],
+      "delegateAdmin": true
+    }
+  ],
+  "denyPolicyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": false }],
+      "users": ["professor", "analyst"],
+      "delegateAdmin": false
+    }
+  ],
+  "auditEnabled": true
+}

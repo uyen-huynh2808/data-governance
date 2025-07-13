@@ -1,0 +1,34 @@
+
+[INFO] Evaluating compliance rules on Hive...
+
+[QUERY] Executing: SELECT COUNT(*) as nulls FROM students WHERE name IS NULL...
+[TIMEOUT] Hive query timed out.
+[QUERY] Executing: SELECT COUNT(*) as nulls FROM students WHERE dob IS NULL...
+[TIMEOUT] Hive query timed out.
+[QUERY] Executing: SELECT COUNT(*) as nulls FROM students WHERE email IS NULL...
+[TIMEOUT] Hive query timed out.
+[QUERY] Executing: SELECT COUNT(*) as nulls FROM students WHERE id_number IS NULL...
+[TIMEOUT] Hive query timed out.
+[QUERY] Executing: SELECT * FROM students WHERE consent_given != true...
+[QUERY] Executing: SELECT s.student_id
+                FROM students s
+                LEFT JOIN consent_logs c
+       ...
+[TIMEOUT] Hive query timed out.
+[QUERY] Executing: SELECT * FROM access_logs
+                WHERE table_name = 'students'
+                AND role NOT...
+[QUERY] Executing: SELECT * FROM grades WHERE GPA < 0.0 OR GPA > 4.0...
+[QUERY] Executing: SELECT student_id, COUNT(*) as cnt
+                FROM students
+                GROUP BY student_id...
+[TIMEOUT] Hive query timed out.
+
+==== COMPLIANCE SUMMARY ====
+[DQ] student_checkpoint: OK
+[DQ] grades_checkpoint: OK
+[ALERT] Consent Required for Processing violated: 513 records without consent.
+[ALERT] Unauthorized Access Check breached: unauthorized access logged.
+[SUMMARY] 2 of 6 compliance rules violated.
+=============================
+

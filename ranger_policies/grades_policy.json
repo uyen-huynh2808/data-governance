@@ -1,0 +1,23 @@
+{
+  "policyName": "grades_access_policy",
+  "service": "hive",
+  "resources": {
+    "database": { "values": ["university_data"], "isExcludes": false, "isRecursive": false },
+    "table": { "values": ["grades"], "isExcludes": false, "isRecursive": false }
+  },
+  "policyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": true }],
+      "users": ["admin", "professor"],
+      "delegateAdmin": true
+    }
+  ],
+  "denyPolicyItems": [
+    {
+      "accesses": [{ "type": "select", "isAllowed": false }],
+      "users": ["analyst"],
+      "delegateAdmin": false
+    }
+  ],
+  "auditEnabled": true
+}

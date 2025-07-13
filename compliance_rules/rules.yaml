@@ -1,0 +1,104 @@
+rules:
+  - id: pii_not_null_check
+    name: "PII Fields Not Null"
+    description: "All PII fields in students table must not be null"
+    type: "not_null"
+    severity: "high"
+    table: students
+    fields:
+      - name
+      - dob
+      - email
+      - id_number
+    threshold:
+      max_null_percent: 0.05
+    check_scope: "batch"
+    on_violation:
+      alert: true
+      block_ingestion: true
+      log_only: false
+
+  - id: consent_required
+    name: "Consent Required for Processing"
+    description: "Only process student data if consent is given"
+    type: "value_check"
+    severity: "high"
+    table: students
+    condition:
+      field: consent_given
+      required_value: true
+    check_scope: "batch"
+    on_violation:
+      alert: true
+      block_ingestion: false
+      log_only: true
+
+  - id: consent_log_integrity
+    name: "Consent Logs Must Exist"
+    description: "Every student record must have a matching consent log"
+    type: "join_check"
+    severity: "medium"
+    table: consent_logs
+    join_condition:
+      left_table: students
+      right_table: consent_logs
+      left_key: student_id
+      right_key: student_id
+    required: true
+    check_scope: "daily"
+    on_violation:
+      alert: true
+      block_ingestion: false
+      log_only: true
+
+  - id: access_policy_violation
+    name: "Unauthorized Access Check"
+    description: "Only users with role 'admin' or 'compliance_officer' should access PII tables"
+    type: "access_policy"
+    severity: "high"
+    table: access_logs
+    condition:
+      field: role
+      allowed_values:
+        - admin
+        - compliance_officer
+    filter_table: students
+    violation_threshold:
+      max_violations_per_day: 3
+    check_scope: "daily"
+    on_violation:
+      alert: true
+      block_ingestion: false
+      log_only: true
+
+  - id: gpa_outlier_check
+    name: "GPA Outlier Detection"
+    description: "Detect if GPA in grades table falls outside acceptable range"
+    type: "range_check"
+    severity: "low"
+    table: grades
+    fields:
+      - GPA
+    threshold:
+      min: 0.0
+      max: 4.0
+    check_scope: "batch"
+    on_violation:
+      alert: false
+      block_ingestion: false
+      log_only: true
+
+  - id: duplicate_student_check
+    name: "Duplicate Student ID Check"
+    description: "Ensure student_id is unique in students table"
+    type: "uniqueness"
+    severity: "high"
+    table: students
+    fields:
+      - student_id
+    constraint: unique
+    check_scope: "batch"
+    on_violation:
+      alert: true
+      block_ingestion: true
+      log_only: false
