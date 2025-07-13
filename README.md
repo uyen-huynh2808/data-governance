@@ -266,4 +266,33 @@ This snowflake schema supports governance, quality validation, and lineage track
 - No real individuals, courses, or institutions are represented.
 - This project is for **educational and demonstration purposes only**, especially in the context of data privacy, data governance, and compliance simulation.
 - Features such as PII tagging, GDPR/PDPD enforcement, and access logging are simulated to reflect real-world architecture, not actual enforcement.
+
+## Limitations
+- Static Data Pipeline: The project uses batch ingestion; streaming sources (e.g., APIs, live systems) are not integrated.
+- Simplified Consent Model: Consent logic is binary and lacks expiration, revocation, or purpose-based processing.
+- No Enforcement Layer: Compliance rule violations are logged but not blocked or escalated to external systems.
+- Simulated Ranger/Atlas Setup: Policies and lineage are mocked for educational purposes and may differ in enterprise-grade clusters.
+- No Role-Based UI: The Streamlit dashboard is read-only and not customized per user role (e.g., admin, professor).
+
+## Future Developments
+- Add Streaming Ingestion: Incorporate Kafka or real-time data sources to simulate continuous access logs or student activity feeds.
+- Enhance Consent Lifecycle: Model detailed consent metadata (expiry, purpose, revocation) and enforce it dynamically.
+- Integrate Alerting System: Send automated alerts (e.g., email, Slack) when compliance violations or quality failures occur.
+- Deploy Atlas + Ranger on Cloud: Transition from Docker-based simulation to real cloud-native deployment (e.g., on EMR or Dataproc).
+- Role-Aware Dashboard: Enable login-based UI access where users can see filtered metrics based on their access level.
+- Automated Remediation: Trigger workflows (e.g., masking, deletion) when specific compliance rules fail.
+
+## Conclusion
+This project demonstrates a full-stack data governance solution tailored to the education sector, simulating how universities can ensure compliance with data protection laws like Vietnam’s PDPD and GDPR. It integrates key tools—Apache Atlas for metadata and lineage, Apache Ranger for access control, Great Expectations for data quality, and a custom Python rule engine for compliance logic.
+
+By combining structured warehouse tables in Hive, access logs, consent tracking, and automated validation rules, the system enables:
+
+- Transparent data lineage from ingestion to reporting
+- Field-level PII access control and auditing
+- Real-time compliance validation based on regulatory rules
+- A user-friendly Streamlit dashboard for oversight and monitoring
+
+This architecture reflects real-world governance challenges faced by data teams in regulated environments and highlights best practices in building auditable, compliant data pipelines.
+
+
 -----
