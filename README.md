@@ -47,7 +47,7 @@ The system uses:
 
 ### MongoDB & CSV Files
 
-All six datasets are first generated as CSV files using the Faker library, and then ingested into **both MongoDB** (for temporary storage and inspection) and **Hive** (as structured warehouse tables). MongoDB supports flexibility in handling semi-structured data during staging, while Hive supports downstream governance tools like Apache Atlas and Ranger.
+All six datasets are first generated as CSV files using the Faker library, and then ingested into **both MongoDB** (for temporary storage and inspection) and **Hive** (as structured warehouse tables). In this simulation, MongoDB is used only as a temporary ingestion layer for demonstration. All governance, compliance, and metadata activities are performed on the Hive-based warehouse tables.
 
 The six datasets include:
 
@@ -167,6 +167,8 @@ This snowflake schema supports governance, quality validation, and lineage track
 - Tagged as **PII** via **Apache Ranger**  
 - Field-level access control and audit logs enabled
 
+> Note: Access control policies via **Apache Ranger** are currently enforced on the raw `students` table. In a full-scale deployment, equivalent policies would also be extended to the transformed `dim_student` table for consistent governance.
+
 > Fields tagged as PII or sensitive are managed via Apache Ranger for field-level access control and audit logging.  
 
 ### Dimension Table: `dim_course`
@@ -192,6 +194,8 @@ This snowflake schema supports governance, quality validation, and lineage track
 | year      | Integer | Academic year              |
 | semester  | String  | Semester (e.g., First, Second) |
 
+> Note: This table is conceptual in the current demo. It is referenced in the data model and documentation but not created or registered in Hive/Atlas during execution.
+
 ### Dimension Table: `dim_department`
 
 | Field         | Type    | Description                      |
@@ -203,7 +207,7 @@ This snowflake schema supports governance, quality validation, and lineage track
 ### Optimization
 
 - **Partitioning:** Tables are partitioned by `region` (in `dim_department`) and `term_id` (in `fact_enrollments`) to improve Hive query performance and archiving strategy.
-- **PII Tagging:** Fields such as `email`, `dob`, and `id_number` are tagged as PII for **access control** and **compliance auditing** via **Apache Ranger** and **Apache Atlas**.
+- **PII Tagging:** Fields such as `email`, `dob`, and `id_number` in the `dim_student table` are tagged as PII for **access control** and **compliance auditing** via **Apache Ranger** and **Apache Atlas**.
 - **Indexing/Bucketing:** Not applied in this setup. For larger datasets, Hive bucketing or indexing can be introduced. The current system relies on **partition pruning** for performance.
 
 ## Project Structure
